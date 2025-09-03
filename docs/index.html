@@ -1,11 +1,160 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE SITE</title>
+    <title>Терапевтичний Сад - Проект</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8f8; /* Дуже світлий зеленуватий */
+            color: #333;
+        }
+        header {
+            background-color: #9370db; /* Середній лавандовий */
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        h1, h2 {
+            color: #6a5acd; /* Більш насичений лавандовий */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .section p {
+            margin-bottom: 15px;
+        }
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .image-gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #6b8e23; /* Оливково-зелений */
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 20px;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body>
-    My favorite site!
+    <header>
+        <div class="container">
+            <h1>Терапевтичний Сад</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">Про Проект</a></li>
+                    <li><a href="#gallery">Галерея</a></li>
+                    <li><a href="#video">Відео</a></li>
+                    <li><a href="#contact">Контакти</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="about" class="section">
+            <h2>Про Проект "Терапевтичний Сад"</h2>
+            <p>Проект "Терапевтичний Сад" – це ініціатива, спрямована на створення спеціально облаштованих зелених просторів, які сприяють фізичному та психологічному відновленню людей. Ми віримо, що контакт з природою є одним з найефективніших способів покращення самопочуття, зниження стресу та підвищення якості життя.</p>
+            <p>Наші сади розроблені з урахуванням принципів терапевтичного дизайну, що включає використання різноманітних рослин з цілющими властивостями, створення зон для спокою та медитації, а також місць для активного відпочинку та спілкування. Кожен елемент саду має на меті стимулювати органи чуття та забезпечувати відчуття гармонії.</p>
+            <p>Особливу увагу ми приділяємо доступності та інклюзивності, щоб Терапевтичний Сад міг служити якомога ширшому колу людей, включаючи людей з особливими потребами, ветеранів, літніх людей та дітей.</p>
+        </section>
+
+        <section id="gallery" class="section">
+            <h2>Наші Зображення</h2>
+            <div class="image-gallery">
+                <img src="https://via.placeholder.com/400x250/98fb98/000000?text=Сад+Вид+1" alt="Вид на Терапевтичний Сад 1">
+                <img src="https://via.placeholder.com/400x250/dda0dd/000000?text=Куточок+Релаксу" alt="Куточок релаксу в саду">
+                <img src="https://via.placeholder.com/400x250/a9a9a9/000000?text=Квіткові+Композиції" alt="Квіткові композиції">
+                <img src="https://via.placeholder.com/400x250/8fbc8f/000000?text=Стежка+Здоров'я" alt="Стежка здоров'я в саду">
+            </div>
+        </section>
+
+        <section id="video" class="section">
+            <h2>Відео про Проект</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/your_youtube_video_id" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+            <p style="text-align: center; margin-top: 15px;">Дізнайтеся більше про наш проект у цьому відео.</p>
+        </section>
+
+        <section id="contact" class="section">
+            <h2>Зв'яжіться з Нами</h2>
+            <p>Якщо у вас є запитання або ви бажаєте долучитися до проекту "Терапевтичний Сад", будь ласка, зв'яжіться з нами:</p>
+            <ul>
+                <li>Електронна пошта: <a href="mailto:info@therapeuticgarden.org" style="color: #6a5acd;">info@therapeuticgarden.org</a></li>
+                <li>Телефон: +38 (0xx) xxx-xx-xx</li>
+                <li>Адреса: м. Вінниця, вул. Садова, 10</li>
+            </ul>
+            <p>Ми завжди відкриті для співпраці та нових ідей!</p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Терапевтичний Сад. Всі права захищені.</p>
+        </div>
+    </footer>
 </body>
 </html>
