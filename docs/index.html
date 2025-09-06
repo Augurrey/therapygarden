@@ -1,142 +1,436 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Терапевтичний Сад - Проект</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #e6fff3;
-            color: #333;
-        }
-        header {
-            background-color: #bb99ff;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px 0;
-        }
-        h1, h2 {
-            color: #00e673;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .section {
-            background-color: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        .section p {
-            margin-bottom: 15px;
-        }
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .image-gallery img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        video {
-            width: 100%;
-        }
-        footer {
-            background-color: #9966ff;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-            margin-top: 20px;
-            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Терапевтичний сад — Проєкт</title>
+  <meta name="description" content="Терапевтичний сад — простір для реабілітації дітей через природу. Зони, кошторис та інформація." />
+
+  <style>
+    /* --- Базова типографіка та скидання --- */
+    :root{
+      --bg:#f6fbf6;
+      --accent:#2b7a3a; /* зелений акцент */
+      --accent-2:#86b66a; /* світліший зелений */
+      --muted:#6b6b6b;
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.7);
+      --shadow: 0 6px 20px rgba(34,40,40,0.08);
+      --radius:16px;
+      --container:1100px;
+      font-family: "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,var(--bg), #eef7ef 60%);
+      color:#15332b;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    a{color:var(--accent); text-decoration:none}
+    .container{max-width:var(--container); margin:0 auto; padding:36px 20px;}
+    header{position:sticky; top:12px; z-index:40;}
+    .nav{
+      display:flex; gap:24px; align-items:center; justify-content:space-between;
+      background:transparent; padding:6px 0;
+    }
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo{
+      width:56px; height:56px; border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex; align-items:center; justify-content:center;
+      color:white; font-weight:700; box-shadow:var(--shadow);
+      font-size:20px;
+    }
+    nav ul{display:flex; gap:18px; align-items:center; list-style:none; margin:0; padding:0}
+    nav li{font-weight:600}
+    /* Hero */
+    .hero{
+      display:grid; grid-template-columns:1fr 420px; gap:28px; align-items:center;
+      margin-top:14px;
+    }
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.95));
+      border-radius:var(--radius); padding:28px; box-shadow:var(--shadow);
+      backdrop-filter: blur(6px);
+    }
+    .kicker{display:inline-block; padding:6px 12px; border-radius:999px; background:rgba(43,122,58,0.12); color:var(--accent); font-weight:700; margin-bottom:10px}
+    h1{margin:6px 0 8px; font-size:34px}
+    p.lead{color:var(--muted); margin:0 0 16px}
+    .cta-row{display:flex; gap:12px; align-items:center; margin-top:10px}
+    .btn{
+      padding:12px 18px; border-radius:12px; font-weight:700; border:0; cursor:pointer;
+      box-shadow:0 6px 18px rgba(43,122,58,0.12);
+    }
+    .btn-primary{background:var(--accent); color:white}
+    .btn-ghost{background:transparent; border:1px solid rgba(21,51,43,0.08); color:var(--accent)}
+    /* side card */
+    .side-card{background:linear-gradient(180deg,#ffffff, #f7fff8); border-radius:16px; padding:18px; box-shadow:var(--shadow)}
+    .stat{display:flex; gap:12px; align-items:center; margin-bottom:10px}
+    .stat strong{font-size:20px; display:block}
+    /* Sections */
+    section{margin-top:36px}
+    .grid{display:grid; gap:20px}
+    .zones-grid{grid-template-columns:repeat(3,1fr)}
+    .zone{
+      background:var(--card); border-radius:14px; padding:18px; box-shadow:var(--shadow);
+      min-height:160px; display:flex; flex-direction:column;
+    }
+    .zone h3{margin:0 0 8px}
+    .zone p{margin:0; color:var(--muted); font-size:14px}
+    /* Cost table */
+    .cost-wrap{display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap}
+    .cost-summary{flex:1; min-width:320px; background:var(--card); padding:16px; border-radius:14px; box-shadow:var(--shadow)}
+    .cost-details{flex:2; min-width:360px}
+    table{width:100%; border-collapse:collapse; font-size:14px}
+    th,td{padding:10px 8px; text-align:left; border-bottom:1px solid rgba(0,0,0,0.06)}
+    th{font-weight:700}
+    .collapsible{background:#f8fff8; border-radius:10px; padding:10px; margin-bottom:10px; cursor:pointer; border:1px solid rgba(43,122,58,0.06)}
+    .hidden{display:none}
+    /* Footer */
+    footer{margin:40px 0 80px; text-align:center; color:var(--muted)}
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr; }
+      .zones-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:640px){
+      nav ul{display:none}
+      .zones-grid{grid-template-columns:1fr}
+    }
+    /* small helper */
+    .muted{color:var(--muted)}
+    .pill{display:inline-block; padding:6px 10px; border-radius:999px; background:rgba(131,190,143,0.12); color:var(--accent)}
+    .download{display:inline-block; margin-top:10px; font-size:14px}
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Терапевтичний Сад</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">Про Проект</a></li>
-                    <li><a href="#gallery">Галерея</a></li>
-                    <li><a href="#video">Відео</a></li>
-                    <li><a href="#contact">Контакти</a></li>
-                </ul>
-            </nav>
+  <header class="container">
+    <div class="nav">
+      <div class="brand">
+        <div class="logo">ТС</div>
+        <div>
+          <div style="font-weight:800">Терапевтичний сад</div>
+          <div class="muted" style="font-size:13px">Проєкт для дітей — природа як терапія</div>
         </div>
-    </header>
+      </div>
 
-    <div class="container">
-        <section id="about" class="section">
-            <h2>Про Проект "Терапевтичний Сад"</h2>
-            <p>Проект "Терапевтичний Сад" – це ініціатива, спрямована на створення спеціально облаштованих зелених просторів, які сприяють фізичному та психологічному відновленню людей. Ми віримо, що контакт з природою є одним з найефективніших способів покращення самопочуття, зниження стресу та підвищення якості життя.</p>
-            <p>Наші сади розроблені з урахуванням принципів терапевтичного дизайну, що включає використання різноманітних рослин з цілющими властивостями, створення зон для спокою та медитації, а також місць для активного відпочинку та спілкування. Кожен елемент саду має на меті стимулювати органи чуття та забезпечувати відчуття гармонії.</p>
-            <p>Особливу увагу ми приділяємо доступності та інклюзивності, щоб Терапевтичний Сад міг служити якомога ширшому колу людей, включаючи людей з особливими потребами, ветеранів, літніх людей та дітей.</p>
-        </section>
+      <nav aria-label="Головне меню">
+        <ul>
+          <li><a href="#about">Про сад</a></li>
+          <li><a href="#zones">Зони</a></li>
+          <li><a href="#cost">Кошторис</a></li>
+          <li><a href="#contact">Контакти</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-        <section id="gallery" class="section">
-            <h2>Наші Зображення</h2>
-            <div class="image-gallery">
-                <img src="assets/photo_1_2025-09-03_22-36-47.jpg" alt="Вид на Терапевтичний Сад 1">
-                <img src="assets/photo_2_2025-09-03_22-36-47.jpg" alt="Куточок релаксу в саду">
-                <img src="assets/photo_3_2025-09-03_22-36-47.jpg" alt="Квіткові композиції">
-                <img src="assets/photo_4_2025-09-03_22-36-47.jpg" alt="Стежка здоров'я в саду">
-            </div>
-        </section>
+  <main class="container">
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-card">
+        <span class="kicker">Через природу — до зцілення</span>
+        <h1>Терапевтичний сад для дітей</h1>
+        <p class="lead">
+          Терапевтичний сад — це спеціально спроєктований простір на свіжому повітрі, який допомагає дітям відновитися та покращити своє здоров’я за допомогою природи.
+          У саду поєднали зони садівничої терапії, сенсорні маршрути, рухову активність, арт-зону, зону спокою та транспортні інсталяції. :contentReference[oaicite:2]{index=2}
+        </p>
 
-        <section id="video" class="section">
-            <h2>Відео про Проект</h2>
-            <video src="assets/IMG_2663.MP4" controls>
-                Ваш браузер не підтримує відео тег.
-            </video>
-            <p style="text-align: center; margin-top: 15px;">Дізнайтеся більше про наш проект у цьому відео.</p>
-        </section>
+        <div class="cta-row">
+          <button class="btn btn-primary" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Підтримати проєкт</button>
+          <a class="btn btn-ghost" href="#cost">Переглянути кошторис</a>
+        </div>
 
-        <section id="contact" class="section">
-            <h2>Зв'яжіться з Нами</h2>
-            <p>Якщо у вас є запитання або ви бажаєте долучитися до проекту "Терапевтичний Сад", будь ласка, зв'яжіться з нами:</p>
-            <ul>
-                <li>Електронна пошта: <a href="mailto:info@therapeuticgarden.org" style="color: #6a5acd;">info@therapeuticgarden.org</a></li>
-                <li>Телефон: +38 (0xx) xxx-xx-xx</li>
-                <li>Адреса: м. Вінниця, вул. Садова, 10</li>
-            </ul>
-            <p>Ми завжди відкриті для співпраці та нових ідей!</p>
-        </section>
+        <div style="margin-top:18px; font-size:14px" class="muted">
+          <strong>Головна ідея:</strong> поєднати природу, творчість та інклюзію — зробити простір безпечним та доступним для всіх. :contentReference[oaicite:3]{index=3}
+        </div>
+
+        <div class="download">
+          <a href="#" id="download-info">Завантажити інфо (DOCX)</a> •
+          <a href="#" id="download-cost">Завантажити кошторис (DOCX)</a>
+        </div>
+      </div>
+
+      <aside class="side-card">
+        <div class="stat"><div style="width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white">6</div>
+          <div><strong>6 зон</strong><div class="muted" style="font-size:13px">Садівнича терапія, сенсорні маршрути, рухова зона, арт, транспорт, зона спокою</div></div>
+        </div>
+
+        <div class="stat"><div style="width:46px;height:46px;border-radius:10px;background:#fff;border:1px solid rgba(43,122,58,0.08);display:flex;align-items:center;justify-content:center;color:var(--accent)">₴</div>
+          <div><strong>Орієнтовний бюджет</strong><div class="muted" style="font-size:13px">Деталізований кошторис по зонах (див. розділ «Кошторис»). :contentReference[oaicite:4]{index=4}</div></div>
+        </div>
+
+        <div style="margin-top:12px; font-size:13px">
+          <strong>Відео</strong>
+          <div class="muted" style="font-size:13px">Тут можна вставити короткий ролик про ідею саду.</div>
+        </div>
+      </aside>
     </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Терапевтичний Сад. Всі права захищені.</p>
+    <!-- ABOUT -->
+    <section id="about">
+      <div style="display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap;">
+        <div style="flex:1; min-width:320px">
+          <h2>Що таке терапевтичний сад?</h2>
+          <p class="muted">Терапевтичний сад — це простір, де діти взаємодіють з рослинами, ґрунтом, водою й звуком для відновлення та розвитку навичок. Тут є сенсорні елементи, грядки для садівництва, місця для спокою і активності. :contentReference[oaicite:5]{index=5}</p>
+
+          <ul style="margin-top:12px; color:var(--muted);">
+            <li>Ігрові та навчальні зони: грядки, мініводойми, сенсорні доріжки.</li>
+            <li>Місця для спокою: альтанки, гамаки, фонтан-каскад.</li>
+            <li>Цілорічна робота: парник/теплиця для розсади.</li>
+          </ul>
         </div>
+
+        <div style="width:360px">
+          <div style="background:linear-gradient(180deg,#f7fff8,#ffffff); padding:12px; border-radius:12px; box-shadow:var(--shadow)">
+            <h3 style="margin:0 0 8px">Переваги</h3>
+            <ol style="margin:0; color:var(--muted); font-size:14px">
+              <li>Зниження стресу та тривожності у дітей</li>
+              <li>Розвиток дрібної моторики та сенсорики</li>
+              <li>Інклюзія та безпечний простір для всіх</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZONES -->
+    <section id="zones">
+      <h2>Зони саду</h2>
+      <p class="muted">У нашому саду буде 6 зон, кожна виконує певну терапевтичну функцію. Короткий огляд зон: :contentReference[oaicite:6]{index=6}</p>
+
+      <div class="grid zones-grid" style="margin-top:16px">
+        <div class="zone">
+          <h3>Зона садівничої терапії</h3>
+          <p>Високі грядки (60–80 см) для дітей в інвалідних кріслах, сенсорні клумби, ягідники, парник для розсади. Частину розсади планується дарувати або продавати на благодійних ярмарках. :contentReference[oaicite:7]{index=7}</p>
+        </div>
+
+        <div class="zone">
+          <h3>Сенсорні маршрути</h3>
+          <p>Доріжки з різними фактурами (пісок, каміння), тактильні панелі і музичні інсталяції для стимуляції органів чуття. :contentReference[oaicite:8]{index=8}</p>
+        </div>
+
+        <div class="zone">
+          <h3>Зона рухової активності</h3>
+          <p>Балансувальні колоди, гойдалки-гнізда, спортивні елементи для фізіотерапії: тренування координації та сили. :contentReference[oaicite:9]{index=9}</p>
+        </div>
+
+        <div class="zone">
+          <h3>Арт-зона</h3>
+          <p>Стіл для малювання, "Стіна мрій", набори для творчості — місце для розвитку уяви і емоційної експресії. :contentReference[oaicite:10]{index=10}</p>
+        </div>
+
+        <div class="zone">
+          <h3>Транспортна зона</h3>
+          <p>Інклюзивно облаштований трамвай і тролейбус для занять, кінопоказів і творчих активностей у будь-яку пору року. :contentReference[oaicite:11]{index=11}</p>
+        </div>
+
+        <div class="zone">
+          <h3>Зона спокою</h3>
+          <p>Альтанки, гамаки та водний елемент (фонтан/джерельце) для затишного відпочинку і зниження стресу. :contentReference[oaicite:12]{index=12}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COST -->
+    <section id="cost">
+      <h2>Кошторис проєкту</h2>
+      <p class="muted">Нижче — коротке резюме основних позицій та деталі по зонах. Повний детальний кошторис доступний у файлі DOCX. :contentReference[oaicite:13]{index=13}</p>
+
+      <div class="cost-wrap" style="margin-top:18px">
+        <div class="cost-summary">
+          <h3>Зведення по зонах</h3>
+          <table>
+            <thead><tr><th>Зона</th><th>Сума (грн)</th></tr></thead>
+            <tbody>
+              <tr><td>Садівнича терапія (ЗОНА 1)</td><td>221 156</td></tr>
+              <tr><td>Сенсорні маршрути (ЗОНА 2)</td><td>168 500</td></tr>
+              <tr><td>Зона рухової активності (ЗОНА 3)</td><td>178 000</td></tr>
+              <tr><td>Арт-зона (ЗОНА 4)</td><td>134 000</td></tr>
+              <tr><td>Транспортна зона (ЗОНА 5)</td><td>495 000</td></tr>
+              <tr><td>Зона спокою (ЗОНА 6)</td><td>322 000</td></tr>
+            </tbody>
+            <tfoot>
+              <tr><th>Разом (орієнтовно)</th><th>1 518 656</th></tr>
+            </tfoot>
+          </table>
+
+          <div style="margin-top:12px; font-size:13px" class="muted">
+            Деталі розрахунків і позицій — у детальному кошторисі (теплиця, грядки, полив, інструменти, роботи і т.д.). :contentReference[oaicite:14]{index=14}
+          </div>
+        </div>
+
+        <div class="cost-details">
+          <div class="collapsible" data-target="zone1">ЗОНА 1 — Садівнича терапія (221 156 грн) — розгорнути</div>
+          <div id="zone1" class="hidden">
+            <ul class="muted">
+              <li>Теплиця — 29 750 грн</li>
+              <li>Підняті грядки 6 шт — 15 000 грн</li>
+              <li>Родючий ґрунт / мульча / компост — 30 800 грн</li>
+              <li>Саджанці/насіння — орієнтир 36 000 грн</li>
+              <li>Крапельний полив / шланги / таймер — 37 206 грн</li>
+              <li>Інвентар — 20 000 грн</li>
+              <li>Малі тактильні елементи — 12 400 грн</li>
+              <li>Ландшафтні роботи та монтаж — 40 000 грн</li>
+            </ul>
+            <small class="muted">Деталізація із файлу кошторису. :contentReference[oaicite:15]{index=15}</small>
+          </div>
+
+          <div class="collapsible" data-target="zone2">ЗОНА 2 — Сенсорні маршрути (168 500 грн) — розгорнути</div>
+          <div id="zone2" class="hidden">
+            <ul class="muted">
+              <li>Доріжки з різними покриттями — 57 000 грн</li>
+              <li>Музичні інсталяції — 49 000 грн</li>
+              <li>Тактильні сенсорні елементи — 24 500 грн</li>
+              <li>Ландшафтні роботи та монтаж — 38 000 грн</li>
+            </ul>
+            <small class="muted">Більш детально — у документі кошторису. :contentReference[oaicite:16]{index=16}</small>
+          </div>
+
+          <div class="collapsible" data-target="zone3">ЗОНА 3 — Зона рухової активності (178 000 грн) — розгорнути</div>
+          <div id="zone3" class="hidden">
+            <ul class="muted">
+              <li>Обладнання — 40 000 грн</li>
+              <li>Покриття та монтаж — 81 000 грн</li>
+              <li>Деталі: балансувальні колоди, гойдалки, шведська стінка, гумове покриття, монтаж.</li>
+            </ul>
+            <small class="muted">Джерело: кошторис. :contentReference[oaicite:17]{index=17}</small>
+          </div>
+
+          <div class="collapsible" data-target="zone4">ЗОНА 4 — Арт-зона (134 000 грн) — розгорнути</div>
+          <div id="zone4" class="hidden">
+            <ul class="muted">
+              <li>Освітлення та електропідключення — 12 000 грн</li>
+              <li>Стільці, столи, набори для творчості, навіс — деталізація у кошторисі.</li>
+            </ul>
+            <small class="muted">Джерело: кошторис. :contentReference[oaicite:18]{index=18}</small>
+          </div>
+
+          <div class="collapsible" data-target="zone5">ЗОНА 5 — Транспортна зона (495 000 грн) — розгорнути</div>
+          <div id="zone5" class="hidden">
+            <ul class="muted">
+              <li>Платформа, монтаж транспорту, електрика, опалення, утеплення, ремонт інтер’єру, пандус, адаптація.</li>
+            </ul>
+            <small class="muted">Джерело: кошторис. :contentReference[oaicite:19]{index=19}</small>
+          </div>
+
+          <div class="collapsible" data-target="zone6">ЗОНА 6 — Зона спокою (322 000 грн) — розгорнути</div>
+          <div id="zone6" class="hidden">
+            <ul class="muted">
+              <li>Альтанки, лави, гамаки, водний елемент, озеленення, підсвітка.</li>
+            </ul>
+            <small class="muted">Джерело: кошторис. :contentReference[oaicite:20]{index=20}</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO PLACEHOLDER -->
+    <section id="media" style="margin-top:26px">
+      <h2>Відео</h2>
+      <p class="muted">Тут можна вставити відео з презентацією проєкту або галерею. Замість плейсхолдера підставте свій URL (YouTube / MP4).</p>
+
+      <div style="margin-top:12px; display:flex; gap:18px; flex-wrap:wrap">
+        <div style="flex:1; min-width:320px; border-radius:12px; overflow:hidden; box-shadow:var(--shadow)">
+          <!-- Замініть src на власне відео або вставте iframe YouTube -->
+          <video controls style="width:100%; display:block; background:#000" id="projectVideo">
+            <source src="" type="video/mp4">
+            Ваш браузер не підтримує відео. Вставте шлях до відео в атрибут source.
+          </video>
+        </div>
+
+        <div style="width:320px; min-width:240px">
+          <h3>Пояснення</h3>
+          <p class="muted">Короткий опис відео, ключові меседжі і заклик до дії (волонтерство, донати, участь у заходах).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="margin-top:32px">
+      <h2>Контакти</h2>
+      <p class="muted">Якщо хочете підтримати або маєте питання — напишіть нам.</p>
+
+      <div style="display:flex; gap:18px; flex-wrap:wrap; align-items:flex-start; margin-top:12px">
+        <form id="contactForm" style="flex:1; min-width:300px; background:var(--card); padding:14px; border-radius:12px; box-shadow:var(--shadow)">
+          <label style="display:block; font-weight:600; margin-bottom:6px">Ваше ім'я</label>
+          <input type="text" name="name" required style="width:100%; padding:10px; border-radius:8px; border:1px solid #eaeaea; margin-bottom:10px" />
+
+          <label style="display:block; font-weight:600; margin-bottom:6px">E-mail / Телефон</label>
+          <input type="text" name="contact" required style="width:100%; padding:10px; border-radius:8px; border:1px solid #eaeaea; margin-bottom:10px" />
+
+          <label style="display:block; font-weight:600; margin-bottom:6px">Повідомлення</label>
+          <textarea name="message" rows="4" required style="width:100%; padding:10px; border-radius:8px; border:1px solid #eaeaea"></textarea>
+
+          <div style="margin-top:10px">
+            <button type="submit" class="btn btn-primary">Відправити</button>
+          </div>
+        </form>
+
+        <div style="width:320px; min-width:240px">
+          <div style="background:var(--card); padding:12px; border-radius:12px; box-shadow:var(--shadow)">
+            <h4 style="margin:0 0 8px">Організатори</h4>
+            <p class="muted" style="margin:0 0 6px">Тут можна вказати контактну інформацію організацій та координаторів проєкту.</p>
+            <p style="margin:0; font-weight:700">Email: info@example.org</p>
+            <p style="margin:0; font-weight:700">Телефон: +380 (xx) xxx-xx-xx</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="muted">© Проєкт Терапевтичний сад — ідея та кошторис: ваші документи. Додаткові матеріали з файлів: <span style="font-weight:700">"тер сад інфа на сайт.docx"</span> та <span style="font-weight:700">"кошторис терап сад.docx"</span>. </div>
     </footer>
+  </main>
+
+  <script>
+    // Простий JS для інтерективності: collapsible секції, завантаження файлів, контактна форма
+    document.querySelectorAll('.collapsible').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const id = btn.dataset.target;
+        const el = document.getElementById(id);
+        if(!el) return;
+        el.classList.toggle('hidden');
+        btn.textContent = el.classList.contains('hidden') ? btn.textContent.replace('закрити','розгорнути') : btn.textContent.replace('розгорнути','закрити');
+      });
+    });
+
+    // Контактна форма — зберігає локально та показує повідомлення (замінити на реальний бекенд)
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      const payload = {
+        name: fd.get('name'),
+        contact: fd.get('contact'),
+        message: fd.get('message'),
+        timestamp: new Date().toISOString()
+      };
+      // Тимчасове локальне збереження (на клієнті). Замініть на відправку на сервер.
+      const messages = JSON.parse(localStorage.getItem('ts_messages') || '[]');
+      messages.push(payload);
+      localStorage.setItem('ts_messages', JSON.stringify(messages));
+      alert('Дякуємо! Ваше повідомлення збережено локально. Ми зв’яжемось з вами.');
+      e.target.reset();
+    });
+
+    // Підставити посилання на завантаження docx-файлів (файли були завантажені у середовище)
+    // Якщо ви розгортаєте сайт локально, помістіть файли поруч із index.html та змініть href на реальні.
+    const downloadInfo = document.getElementById('download-info');
+    const downloadCost = document.getElementById('download-cost');
+
+    // Шляхи для середовища розгортання (за потреби замінити)
+    downloadInfo.href = "./тер сад інфа на сайт.docx"; // помістіть файл у ту саму теку, що й index.html
+    downloadInfo.download = "тер сад інфа на сайт.docx";
+
+    downloadCost.href = "./кошторис терап сад.docx";
+    downloadCost.download = "кошторис терап сад.docx";
+
+    // Якщо ви запускаєте цей файл у середовищі, де немає цих файлів, посилання будуть 404.
+    // Вказівка: файли, з якими працювали, доступні у вашому середовищі розробки (DOCX).
+  </script>
 </body>
 </html>
