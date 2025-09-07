@@ -1,0 +1,21 @@
+@import 'light.css';
+@import 'header.css';
+@import 'buttons.css';
+
+body {
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    font-family: "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
+    font-size: 16px;
+}
+
+header,
+main,
+footer {
+    max-width: 1100px;
+    margin-inline: auto;
+}
+
+section {
+    margin-block: 3rem;
+}
