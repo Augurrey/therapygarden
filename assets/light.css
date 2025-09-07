@@ -1,0 +1,153 @@
+:root {
+  --color-primary: rgb(75 102 44);
+  --color-surface-tint: rgb(75 102 44);
+  --color-on-primary: rgb(255 255 255);
+  --color-primary-container: rgb(204 237 164);
+  --color-on-primary-container: rgb(52 78 22);
+  --color-secondary: rgb(87 98 74);
+  --color-on-secondary: rgb(255 255 255);
+  --color-secondary-container: rgb(219 231 200);
+  --color-on-secondary-container: rgb(64 74 51);
+  --color-tertiary: rgb(109 83 139);
+  --color-on-tertiary: rgb(255 255 255);
+  --color-tertiary-container: rgb(239 219 255);
+  --color-on-tertiary-container: rgb(84 59 113);
+  --color-error: rgb(186 26 26);
+  --color-on-error: rgb(255 255 255);
+  --color-error-container: rgb(255 218 214);
+  --color-on-error-container: rgb(147 0 10);
+  --color-background: rgb(249 250 239);
+  --color-on-background: rgb(26 28 22);
+  --color-surface: rgb(249 250 239);
+  --color-on-surface: rgb(26 28 22);
+  --color-surface-variant: rgb(225 228 213);
+  --color-on-surface-variant: rgb(68 72 61);
+  --color-outline: rgb(117 121 108);
+  --color-outline-variant: rgb(197 200 186);
+  --color-shadow: rgb(0 0 0);
+  --color-scrim: rgb(0 0 0);
+  --color-inverse-surface: rgb(47 49 42);
+  --color-inverse-on-surface: rgb(240 242 230);
+  --color-inverse-primary: rgb(177 209 138);
+  --color-primary-fixed: rgb(204 237 164);
+  --color-on-primary-fixed: rgb(15 32 0);
+  --color-primary-fixed-dim: rgb(177 209 138);
+  --color-on-primary-fixed-variant: rgb(52 78 22);
+  --color-secondary-fixed: rgb(219 231 200);
+  --color-on-secondary-fixed: rgb(21 30 11);
+  --color-secondary-fixed-dim: rgb(191 203 173);
+  --color-on-secondary-fixed-variant: rgb(64 74 51);
+  --color-tertiary-fixed: rgb(239 219 255);
+  --color-on-tertiary-fixed: rgb(39 13 67);
+  --color-tertiary-fixed-dim: rgb(217 186 250);
+  --color-on-tertiary-fixed-variant: rgb(84 59 113);
+  --color-surface-dim: rgb(217 219 208);
+  --color-surface-bright: rgb(249 250 239);
+  --color-surface-container-lowest: rgb(255 255 255);
+  --color-surface-container-low: rgb(243 245 233);
+  --color-surface-container: rgb(238 239 228);
+  --color-surface-container-high: rgb(232 233 222);
+  --color-surface-container-highest: rgb(226 227 216);
+}
+
+/* 
+"primary": {
+    "0": "#000000",
+    "5": "#081400",
+    "10": "#0F2000",
+    "15": "#162B00",
+    "20": "#1E3700",
+    "25": "#264302",
+    "30": "#314F0D",
+    "35": "#3C5B19",
+    "40": "#486724",
+    "50": "#60813A",
+    "60": "#799B51",
+    "70": "#92B669",
+    "80": "#ADD282",
+    "90": "#C8EF9B",
+    "95": "#D6FDA8",
+    "98": "#F0FFD8",
+    "99": "#F8FFE9",
+    "100": "#FFFFFF"
+},
+"secondary": {
+    "0": "#000000",
+    "5": "#0C1305",
+    "10": "#161E0E",
+    "15": "#212817",
+    "20": "#2B3321",
+    "25": "#363E2C",
+    "30": "#414A36",
+    "35": "#4D5542",
+    "40": "#59614D",
+    "50": "#717A64",
+    "60": "#8B947D",
+    "70": "#A6AF97",
+    "80": "#C1CAB1",
+    "90": "#DDE6CC",
+    "95": "#EBF4DA",
+    "98": "#F4FDE2",
+    "99": "#F8FFE9",
+    "100": "#FFFFFF"
+},
+"tertiary": {
+    "0": "#000000",
+    "5": "#1C003A",
+    "10": "#2A0250",
+    "15": "#35115B",
+    "20": "#401E66",
+    "25": "#4C2A72",
+    "30": "#58367F",
+    "35": "#64428B",
+    "40": "#714E98",
+    "50": "#8B67B3",
+    "60": "#A581CF",
+    "70": "#C19BEB",
+    "80": "#DBB8FF",
+    "90": "#EFDBFF",
+    "95": "#F9EDFF",
+    "98": "#FFF7FF",
+    "99": "#FFFBFF",
+    "100": "#FFFFFF"
+},
+"neutral": {
+    "0": "#000000",
+    "5": "#10110E",
+    "10": "#1B1C18",
+    "15": "#252622",
+    "20": "#30312D",
+    "25": "#3B3C38",
+    "30": "#464743",
+    "35": "#52534E",
+    "40": "#5E5F5A",
+    "50": "#777772",
+    "60": "#91918C",
+    "70": "#ACABA6",
+    "80": "#C7C7C1",
+    "90": "#E4E3DC",
+    "95": "#F2F1EA",
+    "98": "#FBF9F3",
+    "99": "#FEFCF6",
+    "100": "#FFFFFF"
+},
+"neutral-variant": {
+    "0": "#000000",
+    "5": "#0F120B",
+    "10": "#191D15",
+    "15": "#24271F",
+    "20": "#2E3229",
+    "25": "#393D34",
+    "30": "#45483F",
+    "35": "#50544A",
+    "40": "#5C6056",
+    "50": "#75786E",
+    "60": "#8F9287",
+    "70": "#AAACA1",
+    "80": "#C5C8BC",
+    "90": "#E2E4D7",
+    "95": "#F0F2E5",
+    "98": "#F9FBEE",
+    "99": "#FCFDF0",
+    "100": "#FFFFFF"
+} */
