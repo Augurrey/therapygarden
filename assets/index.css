@@ -7,6 +7,7 @@ body {
     color: var(--color-on-surface);
     font-family: "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
     font-size: 16px;
+    padding-top: 1.5rem;
 }
 
 header,
@@ -14,6 +15,89 @@ main,
 footer {
     max-width: 1100px;
     margin-inline: auto;
+}
+
+.mainPic {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.95));
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 6px 20px rgba(34, 40, 40, 0.08);
+    backdrop-filter: blur(6px);
+    
+    img {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 1rem;
+    }
+}
+
+.hero {
+    backdrop-filter: blur(6px);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: space-evenly;
+}
+
+.zone {
+    display: flex;
+    flex-direction: column;
+}
+
+.zone h3 {
+    text-align: center;
+}
+
+.minizone-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+}
+
+.minizone {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 24rem;
+    background-color: rgb(217 186 250);
+    border-radius: 1rem;
+    padding: 1.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+}
+
+.minizone h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.minizone ul {
+    list-style-type: disc;
+    padding-left: 1.25rem;
+    margin-top: 0.25rem;
+}
+
+.minizone p,
+.minizone ul {
+    color: #1a1c16;
+}
+
+.minizone.full-width {
+    flex: 1 1 100%;
+}
+
+.genImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 section {
