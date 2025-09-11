@@ -49,6 +49,12 @@ footer {
     flex-direction: column;
 }
 
+.zone {
+    h2{
+        margin: auto;
+    }
+}
+
 .zone h3 {
     text-align: center;
 }
@@ -104,4 +110,8 @@ footer {
 
 section {
     margin-block: 3rem;
+}
+
+.estimate {
+        margin: auto
 }
