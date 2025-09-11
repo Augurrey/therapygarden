@@ -2,6 +2,7 @@
 @import 'header.css';
 @import 'buttons.css';
 @import 'footer.css';
+@import 'navigation.css';
 
 body {
     background-color: var(--color-surface);
@@ -63,7 +64,7 @@ footer {
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 24rem;
-    background-color: rgb(217 186 250);
+    background-color: var(--color-tertiary-fixed-dim);
     border-radius: 1rem;
     padding: 1.75rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);

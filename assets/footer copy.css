@@ -1,5 +1,5 @@
 footer {
-    background: rgb(177 209 138);
+    background: var(--color-inverse-primary);
     backdrop-filter: blur(5px);
     color: var(--color-on-surface);
     border-radius: 1rem;

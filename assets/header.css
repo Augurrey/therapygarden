@@ -46,16 +46,6 @@ section[id] {
     }
 }
 
-nav {
-    display: flex;
-    gap: 1rem;
-
-    a {
-        font-weight: 600;
-        color: var(--color-primary);
-        text-decoration: none;
-    }
-}
 
 @media (max-width: 799px) {
     nav {

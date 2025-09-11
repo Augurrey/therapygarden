@@ -1,0 +1,10 @@
+nav {
+    display: flex;
+    gap: 1rem;
+
+    a {
+        font-weight: 600;
+        color: var(--color-primary);
+        text-decoration: none;
+    }
+}
