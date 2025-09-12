@@ -121,3 +121,13 @@ section {
 section[id] {
     scroll-margin-top: 8rem;
 }
+
+@media screen and (max-width: 768px) {
+    .mainPic {
+    margin-top: 14.5rem;
+    }
+
+    section[id] {
+    scroll-margin-top: 17rem;
+    }
+}
