@@ -1,56 +1,110 @@
-footer {    
-  background: var(--color-inverse-primary);
-  color: var(--color-on-surface);
-  border-radius: 1rem;
-  padding: 1rem;
-  gap: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+ footer {
+    background: var(--color-inverse-primary);
+    color: var(--color-on-surface);
+    border-radius: 1rem;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .footer-navigation {
-  align-self: stretch;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  gap: 4rem;
-
-  > nav {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: inherit;
-  }
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
 
-.footer-logo {
-  display: flex;
+.footer-navigation nav {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .footer-wrapper {
-  align-self: stretch;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  gap: 1rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
-.footer-address {
-  flex: 1 1 100px
+.footer-logo {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
 }
 
-.footer-contact {
-  margin-bottom: 1rem;
+.footer-address,
+.footer-contacts {
+    flex: 1;
+    min-width: 250px;
+    text-align: left;
+}
 
-  > * {
+.footer-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-contact h4 {
     margin: 0;
-  }
+}
+
+.footer-contact p {
+    margin: 0;
+    opacity: 0.8;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.footer-copywrite {
+    font-size: 0.9rem;
+    opacity: 0.7;
 }
 
 @media screen and (max-width: 768px) {
-  .footer-address {
-    font-size: 12px;
-  }
-  .footer-logo {
-    flex-direction: column;
-  }
+    footer {
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .footer-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .footer-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .footer-address,
+    .footer-contacts {
+        text-align: center;
+        min-width: unset;
+    }
+
+    .footer-logo {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
 }

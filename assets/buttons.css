@@ -7,7 +7,7 @@
     font-size: 0.875rem;
     font-weight: 500;
     border-radius: 1.75rem;
-    padding-inline: 1.5rem;
+    padding-inline: 0.75rem;
 
     background-color: var(--color-primary);
     color: var(--color-on-primary);

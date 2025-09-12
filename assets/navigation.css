@@ -8,3 +8,9 @@ nav {
         text-decoration: none;
     }
 }
+
+@media (max-width: 670px) {
+    nav {
+        display: none;
+    }
+}
