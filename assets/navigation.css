@@ -6,6 +6,15 @@ nav {
         font-weight: 600;
         color: var(--color-primary);
         text-decoration: none;
+        opacity: 0.9;
+
+        &:hover {
+        opacity: 1;
+    }
+
+    &:active {
+        opacity: 0.6;
+    }
     }
 }
 

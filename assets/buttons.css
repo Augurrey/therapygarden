@@ -17,8 +17,20 @@
         font-size: 0.875rem;
 
     }
+
+
 }
 
 a.button {
+    opacity: 0.9;
     text-decoration: none;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    &:active {
+        opacity: 0.6;
+    }
+
 }
