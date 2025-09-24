@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Терапевтичний сад</title>
   <link rel="stylesheet" href="assets/index.css">
+
 </head>
 
 <body>
@@ -24,15 +25,23 @@
       <a href="#info">Контакти</a>
     </nav>
 
-    <a class="button" href="#contacts">
+    <a class="button" href="#contacts" onclick="openForm()">
       <span>НАПИСАТИ НАМ</span>
     </a>
   </header>
+
   <main>
     <section id="start" class="mainPic">
+      <h2 class="heding">Терапевтичний сад — простір, де природа лікує, відновлює та об’єднує.</h2>
       <img src="assets/main-pic.jpg" alt="main-pic" />
-      <p>Терапевтичний сад — це спеціально спроєктований простір на свіжому повітрі, який допомагає дітям відновитися та
-        покращити своє здоров’я за допомогою природи.</p>
+      <p>На території КНП "Вінницький обласний медичний центр реабілітації дітей" за
+        адресою вул.Нагірна 17, буде створено перший у Вінниці терапевтичний сад —
+        інклюзивний простір для дітей з інвалідністю, їхніх родин та всієї громади. Це місце, де
+        природа стане частиною реабілітації, а відпочинок і відновлення — доступними для
+        кожного.</p>
+      <p><i>Терапевтичний сад — це спеціально спроєктований простір на свіжому повітрі, який допомагає дітям відновитися
+          та
+          покращити своє здоров’я за допомогою природи.</i></p>
       <h2>Основні цілі терапевтичного саду:</h2>
       <ul>
         <li>
@@ -140,7 +149,7 @@
       <div class="minizone-row">
         <section class="minizone full-width">
           <p>У цій зоні розташовуватимуться балансувальні колоди, гойдалки-гнізда, низькі канати з безпечним кріпленням,
-            спортивні елементи для фізіотерапії (шведська стінка для вулиці, рукохід, поручні).</p>
+            спортивні елементи для фізичної терапії та елементи ерготерапії.</p>
           <img class="genImg" src="assets/moution-zone.jpg" alt="Рухова активність">
         </section>
       </div>
@@ -162,7 +171,8 @@
       <div class="minizone-row">
         <section class="minizone full-width">
           <p>Ця зона відіграватиме функцію розвитку уяви та креативу. Тут будуть столи для малювання, ліплення,
-            арт-терапії, а також «Стіна мрій» - основна прикраса зони для дитячих малюнків.</p>
+            арт-терапії, арт-терапевтичні альтанки, а також «Стіна мрій» - основна прикраса зони для дитячих малюнків.
+          </p>
           <img class="genImg" src="assets/art-zone.jpg" alt="Арт-зона">
         </section>
       </div>
@@ -183,14 +193,18 @@
           <img class="genImg" src="assets/2transport-zone.jpg" alt="Тролейбус - клас творчості">
         </section>
       </div>
-      <h2><a class="estimate" href="https://docs.google.com/spreadsheets/d/1gJDKmI0NV80n9Jmr4nUnoLV4GKmBbjErqHACJ8d-n3E/edit?gid=0#gid=0">Переглянути кошторис можна тут.</a></h2>
+      <h3><i>Терапевтичний сад — це не лише про ландшафт. Це про життя, яке
+          розквітає разом із природою.</i></h3>
+      <p>
+      <h2><a class="estimate">Шукаємо партнерів та спонсорів для створення терапевтичного саду. Якщо вас зацікавив
+          проект, <b><a href="#contacts" onclick="openForm()">напишіть нам</a></b>!</a></h2>
+      </p>
     </section>
-
-    
-
   </main>
 
-
+  <a href="#start">
+    <img class="goUp" href="#start" src="assets/upButton.png" title="Вгору" >
+  </a>
 
   <footer id="info">
     <div class="footer-navigation">
@@ -199,7 +213,7 @@
         <a href="#zone">Зони</a>
         <a href="#start">Вгору</a>
       </nav>
-      <a class="button" href="#contacts">
+      <a class="button" href="#contacts" onclick="openForm()">
         <span>НАПИСАТИ НАМ</span>
       </a>
     </div>
@@ -213,19 +227,28 @@
         </a>
       </div>
       <div class="footer-address">
-        <p>"Вінницький обласний медичний центр реабілітації дітей Вінницької обласноїх ради"</p>
+        <p>"Вінницький обласний медичний центр реабілітації дітей Вінницької обласної Ради"</p>
         <p>Адреса: Україна, Вінниця, вул. Нагірна, 17м, 21019.</p>
       </div>
       <div class="footer-contacts">
         <div class="footer-contact">
           <h4>Лариса Володимирівна Мовчан,</h4>
-          <p>директор</p>
+          <p>директор КНП "ВОМЦРД ВОР",</p>
+          <p>голова правління ГО "Лелека".</p>
           <a href="tel:+38 067 255 70 57" aria-label="phone">тел.+38 067 255 70 57</a>
         </div>
         <div class="footer-contact">
-          <h4>Вікторія Бойко Олександрівна,</h4>
+          <h4>Вікторія Олександрівна Бойко,</h4>
           <p>менеджер з стратегічного розвитку</p>
+          <p>КНП "ВОМЦРД ВОР"</p>
+          <p>учасник ГО "Лелека"</p>
+          <p>координатор проєкту.</p>
           <a href="tel:+38 097 102 79 56" aria-label="phone">тел.+38 097 102 79 56</a>
+        </div>
+        <div class="footer-contact">
+          <h4>Уляна Ігорівна Мовчан,</h4>
+          <p>менеджер проекту.</p>
+          <a href="tel:+38 063 023 56 46" aria-label="phone">тел.+38 063 023 56 46</a>
         </div>
         <div class="footer-links">
           <a href="https://www.instagram.com/vomcrd_?igsh=MTFzZTdscjlsN3Z3Zg==">
@@ -239,6 +262,9 @@
     </div>
     <div class="footer-copywrite">© 2025, Терапевтичний сад. Усі права захищені.</div>
   </footer>
+
+  <script src="js/index.js"></script>
+
 </body>
 
 </html>
