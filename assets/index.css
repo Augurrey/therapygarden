@@ -54,6 +54,10 @@ footer {
     justify-content: space-evenly;
 }
 
+ol li {
+    margin-bottom: 0.8rem;
+}
+
 .zone {
     display: flex;
     flex-direction: column;
